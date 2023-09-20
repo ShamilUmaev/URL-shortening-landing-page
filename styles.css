@@ -89,11 +89,15 @@ h1 {
 
 /* Utility classes */
 .hide {
-    display: none;
+    transform: translate(0, -200%);
+    opacity: 0;
+    transition: all .5s ease;
 }
 
 .show {
-    display: block;
+    transform: translate(0, 0);
+    opacity: 1;
+    transition: all .5s ease;
 }
 
 .btn-primary {
