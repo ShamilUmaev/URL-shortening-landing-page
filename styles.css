@@ -30,6 +30,10 @@ h1 {
     color: hsl(0, 0%, 23%)
 }
 
+.page-container {
+    position: relative;
+}
+
 .header-top {
     display: flex;
     justify-content: space-between;
@@ -52,6 +56,9 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .nav ul {
@@ -89,15 +96,15 @@ h1 {
 
 /* Utility classes */
 .hide {
-    transform: translate(0, -200%);
+    transform: translate(-50%,-200%);
     opacity: 0;
-    transition: all .5s ease;
+    transition: all .8s ease;
 }
 
 .show {
-    transform: translate(0, 0);
+    transform: translate(-50%, 0);
     opacity: 1;
-    transition: all .5s ease;
+    transition: all .8s ease;
 }
 
 .btn-primary {
