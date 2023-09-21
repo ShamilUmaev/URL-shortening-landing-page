@@ -1,7 +1,7 @@
-const hamburgerBtn = document.querySelector('.hamburger-menu');
+const hamburgerBtn = document.querySelector('.hamburger-icon');
 
 const showHideMobileMenu = () => {
-    const navCtr = document.querySelector('nav');
+    const navCtr = document.querySelector('.mobile-nav');
     
     if(navCtr.classList.contains('hide')) {
         navCtr.classList.remove('hide');

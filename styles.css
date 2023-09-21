@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@500;700&display=swap');
 
+:root {
+    ---heading-color: hsl(0, 0%, 23%);
+    --p-color: hsl(257, 7%, 63%);
+} 
+
 * {
     margin: 0;
     padding: 0;
@@ -27,26 +32,29 @@ a {
 }
 
 h1 {
-    color: hsl(0, 0%, 23%)
+    color: var(---heading-color);
 }
 
 .page-container {
     position: relative;
+    max-width: 430px;
+    min-width: 375px;
+    margin: 0 auto;
 }
 
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2.5rem 2rem 2rem;
+    padding: 2.5rem 2rem 1rem;
 }
 
-.hamburger-menu i {
+.hamburger-icon i {
     font-size: 2.8rem;
     color: hsl(0, 0%, 75%);
 }
 
-.nav {
+.mobile-nav {
     background-color: hsl(257, 27%, 26%);
     padding: 3rem 1.5rem;
     width: 90%;
@@ -59,27 +67,28 @@ h1 {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
+    z-index: 3;
 }
 
-.nav ul {
+.mobile-nav ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.nav li {
+.mobile-nav li {
     padding: 1.5rem;
 }
 
-.nav .line {
+.mobile-nav .line {
     height: .5px;
     background-color: rgb(101, 101, 101);
     width: 90%;
     margin: 2rem auto;
 }
 
-.nav .container {
+.mobile-nav .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,6 +101,39 @@ h1 {
     border-radius: 30px;
     text-align: center;
     margin-bottom: 1rem;
+}
+
+.get-started {
+    overflow: hidden;
+}
+
+.get-started img {
+    width: 130%;
+    margin-left: 3.5rem;
+}
+
+.get-started .text-container {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 0 2.5rem;
+}
+
+.text-container > h2 {
+    font-size: 3.8rem;
+    line-height: 1.2;
+    color: var(---heading-color);
+}
+
+.text-container > p {
+    color: var(--p-color);
+    font-size: 1.7rem;
+    line-height: 1.7;
+    margin: 1.5rem 0 2rem;
+}
+
+.get-started-btn {
+    padding: 1.2rem 4rem;
+    border-radius: 30px;
 }
 
 /* Utility classes */
@@ -109,6 +151,12 @@ h1 {
 
 .btn-primary {
     background-color: hsl(180, 66%, 49%);
+    transition: all .3s ease;
+}
+
+.btn-primary:hover {
+    background-color: hsl(180, 66%, 69%);
+    transition: all .3s ease;
 }
 
 .attribution { 
