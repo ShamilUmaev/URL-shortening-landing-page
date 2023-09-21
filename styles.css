@@ -2,8 +2,9 @@
 
 /* Variables */
 :root {
-    ---heading-color: hsl(0, 0%, 23%);
-    --p-color: hsl(257, 7%, 63%);
+    --color-primary: hsl(180, 66%, 49%);
+    --color-primary-light: hsl(180, 66%, 69%);
+    --color-secondary: hsl(257, 27%, 26%);
 } 
 
 /* Reset default styles */
@@ -34,7 +35,7 @@ a {
 }
 
 h1 {
-    color: var(---heading-color);
+    color: hsl(0, 0%, 23%);
 }
 
 /* Page Container */
@@ -59,8 +60,12 @@ h1 {
     color: hsl(0, 0%, 75%);
 }
 
+.hamburger-icon i:hover {
+    cursor: pointer;
+}
+
 .mobile-nav {
-    background-color: hsl(257, 27%, 26%);
+    background-color: var(--color-secondary);
     padding: 3rem 1.5rem;
     width: 90%;
     margin: 0 auto;
@@ -127,11 +132,11 @@ h1 {
 .text-container > h2 {
     font-size: 3.8rem;
     line-height: 1.2;
-    color: var(---heading-color);
+    color: hsl(0, 0%, 23%);
 }
 
 .text-container > p {
-    color: var(--p-color);
+    color: hsl(0, 0%, 40%);
     font-size: 1.7rem;
     line-height: 1.7;
     margin: 1.5rem 0 2rem;
@@ -140,6 +145,108 @@ h1 {
 .get-started-btn {
     padding: 1.2rem 4rem;
     border-radius: 30px;
+}
+
+/* Section with URL input and results */
+.url-input-section {
+    margin-top: 18rem;
+    padding: 0 2rem;
+    background-color: #e4f2f7;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Url input */
+input[type="text"], 
+input[type="submit"], 
+.copy-btn {
+    width: 100%;
+    padding: 1.3rem 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.7rem;
+}
+
+input[type="text"] {
+    color: hsl(0, 0%, 40%);
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+/* Submit button */
+input[type="submit"] {
+    margin-top: 4rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Background for results URL input */
+.background-card {
+    margin-bottom: 2.5rem;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background of URL input and Submit button */
+.bg-primary {
+    width: 100%;
+    padding: 2.5rem;
+    background-color: var(--color-secondary);
+    background-image: url('./images/bg-shorten-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: right top;
+    transform: translateY(-45%);
+}
+
+/* Results with pasted URL above */
+.results {
+    transform: translateY(-15%);
+}
+
+.pasted-url {
+    width: 100%;
+    border-bottom: 1px solid hsl(0, 0%, 90%);
+}
+
+.pasted-url p {
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    color: hsl(0, 0%, 40%);
+}
+
+.result {
+    width: 100%;
+    padding: 1rem 1.5rem 2rem;
+}
+
+.result > a {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.copy-btn {
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.background-card:nth-of-type(2) .result .copy-btn {
+    background-color: var(--color-secondary);
 }
 
 /* Utility classes */
@@ -156,12 +263,12 @@ h1 {
 }
 
 .btn-primary {
-    background-color: hsl(180, 66%, 49%);
+    background-color: var(--color-primary);
     transition: all .3s ease;
 }
 
 .btn-primary:hover {
-    background-color: hsl(180, 66%, 69%);
+    background-color: var(--color-primary-light);
     transition: all .3s ease;
 }
 
