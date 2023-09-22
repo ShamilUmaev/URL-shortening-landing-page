@@ -35,7 +35,6 @@ a {
 }
 
 h1, h2, h3, h4 {
-    /* color: hsl(260, 8%, 14%); */
     color: var(--color-secondary);
 }
 
@@ -330,7 +329,7 @@ input[type="submit"] {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 5rem;
+    padding: 5rem 4rem;
     background-color: hsl(260, 8%, 14%);
 }
 
