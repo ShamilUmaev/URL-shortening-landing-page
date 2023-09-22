@@ -41,7 +41,7 @@ h1, h2, h3, h4 {
 /* Page Container */
 .page-container {
     position: relative;
-    max-width: 430px;
+    width: 100%;
     min-width: 375px;
     margin: 0 auto;
 }
@@ -367,6 +367,59 @@ input[type="submit"] {
     justify-content: space-between;
 }
 
+.bg-light-blue {
+    background-color: #e4f2f7;
+}
+
+.attribution { 
+    font-size: 11px;
+    text-align: center; 
+    margin-top: 3rem;
+    color: #fff;
+}
+    
+.attribution a { 
+    color: var(--color-primary); 
+}
+
+/* Breakpoint for Tablets and large Phones */
+@media only screen and (min-width: 600px) {
+    .get-started img {
+        width: 100%;
+    }
+}
+
+/* Medium Devices Breakpoint */
+@media only screen and (min-width: 768px) {
+    .header-top {
+        padding: 2.5rem 5rem 2rem;
+    }
+
+    .get-started {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .get-started img {
+        width: 50%;
+    }
+
+    .text-container {
+        text-align: left;
+        padding: 0 0 0 5rem;
+    }
+
+    .url-input-section {
+        padding: 0 5rem;
+    }
+
+    .statistics-section {
+        padding: 0 5rem;
+    }
+}
+
 /* Utility classes */
 .hide {
     transform: translate(-50%,-200%);
@@ -390,17 +443,3 @@ input[type="submit"] {
     transition: all .3s ease;
 }
 
-.bg-light-blue {
-    background-color: #e4f2f7;
-}
-
-.attribution { 
-    font-size: 11px;
-    text-align: center; 
-    margin-top: 3rem;
-    color: #fff;
-}
-    
-.attribution a { 
-    color: var(--color-primary); 
-}
