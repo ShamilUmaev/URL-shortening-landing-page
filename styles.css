@@ -246,7 +246,7 @@ input[type="submit"] {
 
 /* Statistics Section */
 .statistics-section {
-    padding: 0 2rem 1rem;
+    padding: 0 2rem;
     text-align: center;
 }
 
@@ -300,6 +300,28 @@ input[type="submit"] {
     align-items: center;
     background-color: var(--color-secondary);
     transform: translateY(-50%);
+}
+
+/* Boost your links Section */
+.boost-links-section {
+    width: 100%;
+    height: 300px;
+    padding: 2rem;
+    background-color: var(--color-secondary);
+    background-image: url("./images/bg-boost-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boost-links-section h3 {
+    color: #fff;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
 }
 
 /* Utility classes */
