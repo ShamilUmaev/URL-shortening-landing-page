@@ -54,6 +54,10 @@ h1, h2, h3, h4 {
     padding: 2.5rem 2rem 1rem;
 }
 
+.logo {
+    font-size: 2.5rem;
+}
+
 /* Mobile Nav */
 .hamburger-icon i {
     font-size: 2.8rem;
@@ -98,14 +102,14 @@ h1, h2, h3, h4 {
     margin: 2rem auto;
 }
 
-.mobile-nav .container {
+.login-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container a {
+.login-container a {
     padding: 1rem 0;
     width: 300px;
     border-radius: 30px;
@@ -130,7 +134,7 @@ h1, h2, h3, h4 {
 }
 
 .text-container > h2 {
-    font-size: 3.8rem;
+    font-size: 4rem;
     line-height: 1.2;
 }
 
@@ -340,6 +344,7 @@ input[type="submit"] {
 
 .footer h4 {
     margin-bottom: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .footer-links-container {
@@ -391,6 +396,10 @@ input[type="submit"] {
     transform: translate(-50%, -100%);
 }
 
+.desktop-only {
+    display: none;
+}
+
 /* Breakpoint for Tablets and large Phones */
 @media only screen and (min-width: 600px) {
     .get-started img {
@@ -401,7 +410,7 @@ input[type="submit"] {
 /* Medium Devices Breakpoint */
 @media only screen and (min-width: 768px) {
     .header-top {
-        padding: 2.5rem 5rem 2rem;
+        padding: 2.5rem 5rem 1rem;
     }
 
     .get-started {
@@ -426,6 +435,29 @@ input[type="submit"] {
 
     .statistics-section {
         padding: 0 5rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .hamburger-icon {
+        display: none;
+    }
+
+    .login-container a {
+        width: 150px;
+    }
+
+    .login-btn {
+        color: var(--color-secondary);
+    }
+
+    .mobile-only {
+        display: none;
+    }
+
+    .desktop-only {
+        display: block;
     }
 }
 
