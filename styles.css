@@ -382,6 +382,15 @@ input[type="submit"] {
     color: var(--color-primary); 
 }
 
+.connect-line {
+    width: 7px;
+    height: 100px;
+    background-color: var(--color-primary);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
 /* Breakpoint for Tablets and large Phones */
 @media only screen and (min-width: 600px) {
     .get-started img {
