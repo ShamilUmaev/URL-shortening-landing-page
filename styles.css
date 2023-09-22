@@ -34,8 +34,9 @@ a {
     display: inline-block;
 }
 
-h1 {
-    color: hsl(0, 0%, 23%);
+h1, h2, h3, h4 {
+    /* color: hsl(260, 8%, 14%); */
+    color: var(--color-secondary);
 }
 
 /* Page Container */
@@ -123,7 +124,7 @@ h1 {
     margin-left: 3.5rem;
 }
 
-.get-started .text-container {
+.text-container {
     text-align: center;
     margin-top: 3rem;
     padding: 0 2.5rem;
@@ -132,7 +133,6 @@ h1 {
 .text-container > h2 {
     font-size: 3.8rem;
     line-height: 1.2;
-    color: hsl(0, 0%, 23%);
 }
 
 .text-container > p {
@@ -151,7 +151,6 @@ h1 {
 .url-input-section {
     margin-top: 18rem;
     padding: 0 2rem;
-    background-color: #e4f2f7;
 }
 
 .form {
@@ -190,14 +189,10 @@ input[type="submit"] {
 }
 
 /* Background for results URL input */
-.background-card {
+.result-bg-card {
     margin-bottom: 2.5rem;
     border-radius: 10px;
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 /* Background of URL input and Submit button */
@@ -245,8 +240,66 @@ input[type="submit"] {
     width: 100%;
 }
 
-.background-card:nth-of-type(2) .result .copy-btn {
+.result-bg-card:nth-of-type(2) .result .copy-btn {
     background-color: var(--color-secondary);
+}
+
+/* Statistics Section */
+.statistics-section {
+    padding: 0 2rem 1rem;
+    text-align: center;
+}
+
+.statistics-section > h3 {
+    font-size: 2.8rem;
+}
+
+.statistics-section > p {
+    color: hsl(0, 0%, 60%);   
+    font-size: 1.6rem;
+    margin: 2rem 0 8.5rem;
+    line-height: 1.7;
+}
+
+.statistics-cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statistic-bg-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 1.5rem 1.5rem;
+    margin-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statistic-bg-card > h4 {
+    font-size: 2.1rem;
+}
+
+.statistic-bg-card > p {
+    color: hsl(0, 0%, 60%);   
+    font-size: 1.6rem;
+    margin: 2rem;
+    line-height: 1.7;
+}
+
+.statistic-img-bg {
+    width: 85px;
+    height: 85px;
+    padding: 1.8rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-secondary);
+    transform: translateY(-50%);
 }
 
 /* Utility classes */
@@ -270,6 +323,10 @@ input[type="submit"] {
 .btn-primary:hover {
     background-color: var(--color-primary-light);
     transition: all .3s ease;
+}
+
+.bg-light-blue {
+    background-color: #e4f2f7;
 }
 
 .attribution { 
