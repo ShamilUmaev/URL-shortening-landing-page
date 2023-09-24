@@ -496,7 +496,13 @@ input[type="submit"] {
 
     .desktop-nav li a {
         padding: 2rem;
+        color: hsl(0, 0%, 60%); 
+        transition: color .3s ease;
+    }
+
+    .desktop-nav li a:hover {
         color: var(--color-secondary);
+        transition: color .3s ease;
     }
 
     .desktop-nav .login-container {
@@ -511,7 +517,13 @@ input[type="submit"] {
     }
 
     .login-btn {
+        color: hsl(0, 0%, 60%);
+        transition: color .3s ease;
+    }
+
+    .login-btn:hover {
         color: var(--color-secondary);
+        transition: color .3s ease;
     }
 
     /* Get started section for larger devices */
