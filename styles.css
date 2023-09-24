@@ -656,6 +656,23 @@ input[type="submit"] {
         font-size: 4.2rem;
     }
 
+    .footer {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .footer-links-container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 40%;
+    }
+
+    .footer-links-container div {
+        padding: 0;
+        align-items: flex-start;
+    }
+
     .mobile-only {
         display: none;
     }
