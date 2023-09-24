@@ -124,13 +124,13 @@ h1, h2, h3, h4 {
 
 .get-started img {
     width: 130%;
-    margin-left: 3.5rem;
+    transform: translateX(5%);
 }
 
 .text-container {
     text-align: center;
     margin-top: 3rem;
-    padding: 0 2.5rem;
+    padding: 0 9vw;
 }
 
 .text-container > h2 {
@@ -154,6 +154,24 @@ h1, h2, h3, h4 {
 .url-input-section {
     margin-top: 18rem;
     padding: 0 2rem;
+}
+
+/* Background for results URL input */
+.result-bg-card {
+    margin-bottom: 2.5rem;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Background of URL input and Submit button */
+.bg-primary {
+    width: 100%;
+    padding: 2.5rem;
+    background-color: var(--color-secondary);
+    background-image: url('./images/bg-shorten-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: right top;
+    transform: translateY(-45%);
 }
 
 .form {
@@ -189,24 +207,6 @@ input[type="submit"] {
     font-weight: 700;
     cursor: pointer;
     color: #fff;
-}
-
-/* Background for results URL input */
-.result-bg-card {
-    margin-bottom: 2.5rem;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
-/* Background of URL input and Submit button */
-.bg-primary {
-    width: 100%;
-    padding: 2.5rem;
-    background-color: var(--color-secondary);
-    background-image: url('./images/bg-shorten-mobile.svg');
-    background-repeat: no-repeat;
-    background-position: right top;
-    transform: translateY(-45%);
 }
 
 /* Results with pasted URL above */
@@ -269,17 +269,16 @@ input[type="submit"] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .statistic-bg-card {
     background-color: #fff;
     border-radius: 10px;
-    padding: 0 1.5rem 1.5rem;
+    padding: 7rem 3rem 1.5rem;
     margin-bottom: 10rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .statistic-bg-card > h4 {
@@ -302,7 +301,20 @@ input[type="submit"] {
     justify-content: center;
     align-items: center;
     background-color: var(--color-secondary);
-    transform: translateY(-50%);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.connect-line {
+    width: 7px;
+    height: 600px;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: var(--color-primary);
 }
 
 /* Boost your links Section */
@@ -387,30 +399,14 @@ input[type="submit"] {
     color: var(--color-primary); 
 }
 
-.connect-line {
-    width: 7px;
-    height: 100px;
-    background-color: var(--color-primary);
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -100%);
-}
-
 .desktop-only {
     display: none;
 }
 
 /* Breakpoint for Tablets and large Phones */
 @media only screen and (min-width: 600px) {
-    .get-started img {
-        width: 100%;
-    }
-}
-
-/* Medium Devices Breakpoint */
-@media only screen and (min-width: 768px) {
     .header-top {
-        padding: 2.5rem 5rem 1rem;
+        padding: 3rem 10vw;    
     }
 
     .get-started {
@@ -418,19 +414,30 @@ input[type="submit"] {
         flex-direction: row-reverse;
         justify-content: center;
         align-items: center;
+        padding-top: 5vh;
     }
 
     .get-started img {
         width: 50%;
+        transform: translateX(20%);
     }
 
     .text-container {
+        margin: 0;
         text-align: left;
-        padding: 0 0 0 5rem;
+        padding: 0 0 0 10vw;
+    }
+
+    .text-container > h2 {
+        font-size: 3.5rem;
+    }
+
+    .text-container > p {
+        font-size: 1.5rem;
     }
 
     .url-input-section {
-        padding: 0 5rem;
+        padding: 0 10vw;
     }
 
     .statistics-section {
@@ -438,18 +445,215 @@ input[type="submit"] {
     }
 }
 
+/* Medium Devices Breakpoint */
+@media only screen and (min-width: 768px) {
+    .text-container > h2 {
+        font-size: 4rem;
+    }
+
+    .text-container > p {
+        font-size: 1.7rem;
+    }
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .page-container {
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+
+    /* Navbar for large devices */
     .hamburger-icon {
         display: none;
     }
 
+    .header-top .logo {
+        width: 12%;
+    }
+
+    .desktop-nav {
+        width: 88%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .desktop-nav ul {
+        display: flex;
+    }
+
+    .desktop-nav li a {
+        padding: 2rem;
+        color: var(--color-secondary);
+    }
+
+    .desktop-nav .login-container {
+        display: flex;
+        flex-direction: row;
+    }
+
     .login-container a {
-        width: 150px;
+        width: 120px;
+        padding: .8rem 1rem;
+        margin: 0;
     }
 
     .login-btn {
         color: var(--color-secondary);
+    }
+
+    /* Get started section for larger devices */
+    .get-started {
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 5rem;
+    }
+
+    .get-started img {
+        transform: translateX(18%);
+    }
+
+    .text-container {
+        padding: 0 0 0 10vw;
+        width: 50%;
+    }
+
+    .text-container > h2 {
+        font-size: 6rem;
+    }
+
+    .text-container > p {
+        width: 72%;
+    }
+
+    /* Section with URL input and results for larger devices*/
+
+    .form {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    input[type="text"],
+    input[type="submit"] {
+        /* padding: 1.3rem 3rem; */
+    }
+
+    input[type="text"] {
+        width: 83%;
+    }
+
+    input[type="submit"] {
+        width: 15%;
+        margin: 0;
+    }
+
+    .bg-primary {
+        padding: 5rem;
+        background-image: url('./images/bg-shorten-desktop.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+
+    .results {
+        transform: translateY(-10%);
+    }
+
+    .results .result-bg-card {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+    }
+
+    .pasted-url {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        border: none;
+    }
+
+    .pasted-url > p {
+        padding: 0;
+    }
+
+    .result {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .result > a {
+        width: 68%;
+    }
+
+    .copy-btn {
+        width: 30%;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .statistics-section {
+        padding: 5rem 10vw;
+    }
+
+    .statistics-section > p {
+        width: 35%;
+        margin: 2rem auto 8.5rem;
+    }
+
+    .statistics-cards-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        padding: 4rem 0;
+    }
+
+    .statistic-bg-card {
+        text-align: left;
+        width: 32%;
+    }
+
+    .statistic-bg-card:nth-of-type(2) {
+        transform: translateY(15%);
+    }
+
+    .statistic-bg-card:nth-of-type(3) {
+        transform: translateY(30%);
+    }
+
+    .statistic-bg-card > h4 {
+        width: 67%;
+    }
+
+    .statistic-bg-card > p {
+        margin: 2rem 0;
+        font-size: 1.5rem;
+    }
+
+    .statistic-img-bg {
+        left: 12%;
+        transform: translate(0, -50%);
+    }
+
+    /* .statistic-bg-card:nth-of-type(3) .connect-line {
+        top: 28%;
+    } */
+
+    .connect-line {
+        bottom: -10%;
+        transform: rotate(90deg);
+    }
+
+    .boost-links-section {
+        background-image: url("./images/bg-boost-desktop.svg");
+        
+    }
+
+    .boost-links-section h3 {
+        font-size: 4.2rem;
     }
 
     .mobile-only {
@@ -457,7 +661,7 @@ input[type="submit"] {
     }
 
     .desktop-only {
-        display: block;
+        display: flex;
     }
 }
 
