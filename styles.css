@@ -659,6 +659,8 @@ input[type="submit"] {
     .footer {
         flex-direction: row;
         align-items: flex-start;
+        justify-content: space-between;
+        padding: 5rem 10vw;
     }
 
     .footer-links-container {
