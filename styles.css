@@ -341,6 +341,10 @@ input[type="submit"] {
 
 /* Footer */
 .footer {
+    background-color: hsl(260, 8%, 14%);
+}
+
+.footer-inner-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -398,7 +402,7 @@ input[type="submit"] {
 .attribution { 
     font-size: 11px;
     text-align: center; 
-    margin-top: 3rem;
+    padding: 0 10vw 5rem;
     color: #fff;
 }
     
@@ -659,7 +663,7 @@ input[type="submit"] {
         font-size: 4.2rem;
     }
 
-    .footer {
+    .footer-inner-container {
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
