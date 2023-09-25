@@ -51,7 +51,7 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2.5rem 2rem 1rem;
+    padding: 2.5rem 10vw 1rem;
 }
 
 .logo {
@@ -117,6 +117,11 @@ h1, h2, h3, h4 {
     margin-bottom: 1rem;
 }
 
+.btn-primary {
+    background-color: var(--color-primary);
+    transition: all .3s ease;
+}
+
 /* Get Started Section */
 .get-started {
     overflow: hidden;
@@ -130,7 +135,7 @@ h1, h2, h3, h4 {
 .text-container {
     text-align: center;
     margin-top: 3rem;
-    padding: 0 9vw;
+    padding: 0 10vw;
 }
 
 .text-container > h2 {
@@ -153,7 +158,7 @@ h1, h2, h3, h4 {
 /* Section with URL input and results */
 .url-input-section {
     margin-top: 18rem;
-    padding: 0 2rem;
+    padding: 0 10vw;
 }
 
 /* Background for results URL input */
@@ -249,7 +254,7 @@ input[type="submit"] {
 
 /* Statistics Section */
 .statistics-section {
-    padding: 0 2rem;
+    padding: 0 10vw;
     text-align: center;
 }
 
@@ -258,7 +263,7 @@ input[type="submit"] {
 }
 
 .statistics-section > p {
-    color: hsl(0, 0%, 60%);   
+    color: hsl(0, 0%, 60%);
     font-size: 1.6rem;
     margin: 2rem 0 8.5rem;
     line-height: 1.7;
@@ -399,6 +404,7 @@ input[type="submit"] {
     background-color: #e4f2f7;
 }
 
+/* Coded by and challenged by text */
 .attribution { 
     font-size: 11px;
     text-align: center; 
@@ -416,10 +422,13 @@ input[type="submit"] {
 
 /* Breakpoint for Tablets and large Phones */
 @media only screen and (min-width: 600px) {
+
+    /* Header */
     .header-top {
         padding: 3rem 10vw;    
     }
 
+    /* Get Started Section */
     .get-started {
         display: flex;
         flex-direction: row-reverse;
@@ -447,17 +456,17 @@ input[type="submit"] {
         font-size: 1.5rem;
     }
 
-    .url-input-section {
-        padding: 0 10vw;
-    }
-
-    .statistics-section {
-        padding: 0 5rem;
+    /* Statistics Section */
+    .statistics-section > p {
+        width: 70%;
+        margin: 2rem auto 8.5rem;
     }
 }
 
 /* Medium Devices Breakpoint */
 @media only screen and (min-width: 768px) {
+
+    /* Get Started Section */
     .text-container > h2 {
         font-size: 4rem;
     }
@@ -465,10 +474,17 @@ input[type="submit"] {
     .text-container > p {
         font-size: 1.7rem;
     }
+
+    /* Statistics Section */
+    .statistics-section > p {
+        width: 60%;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+
+    /* Page Container */
     .page-container {
         max-width: 1920px;
         margin: 0 auto;
@@ -526,7 +542,7 @@ input[type="submit"] {
         transition: color .3s ease;
     }
 
-    /* Get started section for larger devices */
+    /* Get Started Section */
     .get-started {
         align-items: center;
         justify-content: space-between;
@@ -550,16 +566,10 @@ input[type="submit"] {
         width: 72%;
     }
 
-    /* Section with URL input and results for larger devices*/
-
+    /* Section with URL input and results */
     .form {
         flex-direction: row;
         justify-content: space-between;
-    }
-
-    input[type="text"],
-    input[type="submit"] {
-        /* padding: 1.3rem 3rem; */
     }
 
     input[type="text"] {
@@ -571,16 +581,12 @@ input[type="submit"] {
         margin: 0;
     }
 
+    /* Background of URL input and Submit button */
     .bg-primary {
         padding: 5rem;
         background-image: url('./images/bg-shorten-desktop.svg');
         background-repeat: no-repeat;
         background-size: cover;
-        
-    }
-
-    .results {
-        transform: translateY(-10%);
     }
 
     .results .result-bg-card {
@@ -598,6 +604,10 @@ input[type="submit"] {
 
     .pasted-url > p {
         padding: 0;
+    }
+
+    .results {
+        transform: translateY(-28%);
     }
 
     .result {
@@ -618,12 +628,13 @@ input[type="submit"] {
         padding: 1rem;
     }
 
+    /* Statistics Section */
     .statistics-section {
         padding: 5rem 10vw;
     }
 
     .statistics-section > p {
-        width: 35%;
+        width: 50%;
         margin: 2rem auto 8.5rem;
     }
 
@@ -668,13 +679,13 @@ input[type="submit"] {
 
     .boost-links-section {
         background-image: url("./images/bg-boost-desktop.svg");
-        
     }
 
     .boost-links-section h3 {
         font-size: 4.2rem;
     }
 
+    /* Footer */
     .footer-inner-container {
         flex-direction: row;
         align-items: flex-start;
@@ -729,10 +740,5 @@ input[type="submit"] {
     transform: translate(-50%, 0);
     opacity: 1;
     transition: all .8s ease;
-}
-
-.btn-primary {
-    background-color: var(--color-primary);
-    transition: all .3s ease;
 }
 
