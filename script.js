@@ -1,3 +1,4 @@
+// Hamburger Menu for mobile version
 const hamburgerBtn = document.querySelector('.hamburger-icon');
 
 const showHideMobileMenu = () => {
