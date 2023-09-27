@@ -21,6 +21,7 @@ const shortenUrl = async (urlInput) => {
     const response = await fetch(API_URL);
     const { result } = await response.json();
     addToLocalStorage(result);
+    displayLinks();
     urlInput.value = '';
 }
 
@@ -49,9 +50,30 @@ const addToLocalStorage = (apiResult) => {
     }
     linksFromStorage.unshift(apiResult);
     localStorage.setItem('links', JSON.stringify(linksFromStorage));
-    console.log(linksFromStorage);
 }
 
+// Display the data from local storage
+const displayLinks = () => {
+    const linksFromStorage = getFromLocalStorage();
+    const resultsDiv = document.querySelector('div.results');
+    resultsDiv.innerHTML = '';
+    console.log('worked')
+    linksFromStorage.forEach(link => {
+        const resultBgCard = document.createElement('div');
+        resultBgCard.classList.add('result-bg-card');
+        resultBgCard.innerHTML = `
+            <div class="pasted-url">
+                <p>${link.original_link}</p>
+            </div>
+            <div class="result">
+                <a href="${link.full_short_link}">${link.full_short_link}</a>
+                <button class="copy-btn btn-primary">Copy</button>
+            </div>
+        `
+        resultsDiv.appendChild(resultBgCard);
+    })
+}
 
 hamburgerBtn.addEventListener('click', showHideMobileMenu);
 form.addEventListener('submit', submitUrl);
+document.addEventListener('DOMContentLoaded', displayLinks);
