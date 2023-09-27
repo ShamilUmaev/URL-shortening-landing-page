@@ -20,7 +20,7 @@ const shortenUrl = async (urlInput) => {
     const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
     const response = await fetch(API_URL);
     const { result } = await response.json();
-    console.log(result);
+    addToLocalStorage(result);
     urlInput.value = '';
 }
 
@@ -29,6 +29,29 @@ const submitUrl = (e) => {
     e.preventDefault();
     shortenUrl(urlInput);
 }
+
+// Get from local storage
+const getFromLocalStorage = () => {
+    let linksFromStorage;
+    if(localStorage.getItem('links') === null) {
+        linksFromStorage = [];
+    } else {
+        linksFromStorage = JSON.parse(localStorage.getItem('links'));
+    }
+    return linksFromStorage;
+}
+
+// Add to local storage
+const addToLocalStorage = (apiResult) => {
+    const linksFromStorage = getFromLocalStorage();
+    if(linksFromStorage.length >= 3) {
+        linksFromStorage.pop();
+    }
+    linksFromStorage.unshift(apiResult);
+    localStorage.setItem('links', JSON.stringify(linksFromStorage));
+    console.log(linksFromStorage);
+}
+
 
 hamburgerBtn.addEventListener('click', showHideMobileMenu);
 form.addEventListener('submit', submitUrl);
