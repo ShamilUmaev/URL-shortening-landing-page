@@ -228,6 +228,7 @@ input[type="submit"] {
     font-size: 1.5rem;
     padding: 1rem 1.5rem;
     color: hsl(0, 0%, 40%);
+    word-break: break-all;
 }
 
 .result {
@@ -596,13 +597,13 @@ input[type="submit"] {
     }
 
     .pasted-url {
-        width: 60%;
+        width: 55%;
         display: flex;
         align-items: center;
         border: none;
     }
 
-    .pasted-url > p {
+    .pasted-url p {
         padding: 0;
     }
 
@@ -619,7 +620,8 @@ input[type="submit"] {
     }
 
     .result > a {
-        width: 68%;
+        width: 65%;
+        text-align: right;
     }
 
     .copy-btn {
