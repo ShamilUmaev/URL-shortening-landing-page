@@ -10,12 +10,20 @@ const showHideMobileMenu = () => {
 
 // Shorten the URL
 const shortenUrl = async (urlInput) => {
-    const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
-    const response = await fetch(API_URL);
-    const { result } = await response.json();
-    addToLocalStorage(result);
-    displayLinks();
-    urlInput.value = '';
+    if(urlInput.value === '') {
+        urlInput.style.outline = "2px solid red";
+        urlInput.classList.add('error');
+        return;
+    } else {
+        urlInput.style.outline = "none";
+        urlInput.classList.remove('error');
+        const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
+        const response = await fetch(API_URL);
+        const { result } = await response.json();
+        addToLocalStorage(result);
+        displayLinks();
+        urlInput.value = '';
+    }
 }
 
 // Submit the URL
