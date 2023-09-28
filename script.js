@@ -26,6 +26,11 @@ const shortenUrl = async (urlInput) => {
     }
 }
 
+const onFocus = () => {
+    urlInput.style.outline = "none";
+    urlInput.classList.remove('error');
+}
+
 // Submit the URL
 const submitUrl = (e) => {
     e.preventDefault();
@@ -116,5 +121,6 @@ const displayLinks = () => {
 // }
 
 hamburgerBtn.addEventListener('click', showHideMobileMenu);
+urlInput.addEventListener('focus', onFocus);
 form.addEventListener('submit', submitUrl);
 document.addEventListener('DOMContentLoaded', displayLinks);
