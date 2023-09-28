@@ -53,8 +53,8 @@ const addToLocalStorage = (apiResult) => {
 // Display the data from local storage
 const displayLinks = () => {
     const linksFromStorage = getFromLocalStorage();
-    const resultsDiv = document.querySelector('div.results');
-    resultsDiv.innerHTML = '';
+    const resultsParentContainer = document.querySelector('div.results');
+    resultsParentContainer.innerHTML = '';
     linksFromStorage.forEach(link => {
         const resultBgCard = document.createElement('div');
         resultBgCard.classList.add('result-bg-card');
@@ -67,9 +67,52 @@ const displayLinks = () => {
                 <button class="copy-btn btn-primary">Copy</button>
             </div>
         `
-        resultsDiv.appendChild(resultBgCard);
+        resultsParentContainer.appendChild(resultBgCard);
     })
 }
+
+// // A function to display the short-links by creating elements using the DOM
+// const displayLinksUsingDom = () => {
+//     const linksFromStorage = getFromLocalStorage();
+//     const resultsParentContainer = document.querySelector('div.results');
+//     resultsParentContainer.innerHTML = '';
+//     linksFromStorage.forEach(link => {
+//         // Create a Background Card for each Result
+//         const resultBgCard = document.createElement('div');
+//         resultBgCard.classList.add('result-bg-card');
+    
+//         // Create a parent div called pasted-url for original-link paragraph
+//         const pastedUrlDiv = document.createElement('div');
+//         pastedUrlDiv.classList.add('pasted-url');
+//         resultBgCard.appendChild(pastedUrlDiv);
+    
+//         // Create a paragraph with original link
+//         const originalLink = document.createElement('p');
+//         originalLink.appendChild(document.createTextNode(link.original_link));
+//         pastedUrlDiv.appendChild(originalLink);
+    
+//         // Create a div for the result
+//         const result = document.createElement('div');
+//         result.classList.add('result');
+    
+//         // Create an anchor tag for full_short_link
+//         const fullShortlink = document.createElement('a');
+//         fullShortlink.setAttribute('href', link.full_short_link);
+//         fullShortlink.appendChild(document.createTextNode(link.full_short_link));
+//         result.appendChild(fullShortlink);
+    
+//         // Create a button to copy the full_short_link
+//         const cpyBtn = document.createElement('button');
+//         cpyBtn.classList.add('copy-btn', 'btn-primary');
+//         cpyBtn.appendChild(document.createTextNode('Copy'));
+//         result.appendChild(cpyBtn);
+    
+//         // Append the div of the result to the Background Card for each Result
+//         resultBgCard.appendChild(result);
+    
+//         resultsParentContainer.appendChild(resultBgCard);
+//     })
+// }
 
 hamburgerBtn.addEventListener('click', showHideMobileMenu);
 form.addEventListener('submit', submitUrl);
