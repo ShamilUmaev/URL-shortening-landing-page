@@ -33,13 +33,11 @@ const submitUrl = (e) => {
 
 // Get from local storage
 const getFromLocalStorage = () => {
-    let linksFromStorage;
     if(localStorage.getItem('links') === null) {
-        linksFromStorage = [];
+        return [];
     } else {
-        linksFromStorage = JSON.parse(localStorage.getItem('links'));
+        return linksFromStorage = JSON.parse(localStorage.getItem('links'));
     }
-    return linksFromStorage;
 }
 
 // Add to local storage
@@ -57,7 +55,6 @@ const displayLinks = () => {
     const linksFromStorage = getFromLocalStorage();
     const resultsDiv = document.querySelector('div.results');
     resultsDiv.innerHTML = '';
-    console.log('worked')
     linksFromStorage.forEach(link => {
         const resultBgCard = document.createElement('div');
         resultBgCard.classList.add('result-bg-card');
