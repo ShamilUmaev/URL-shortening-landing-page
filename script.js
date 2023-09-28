@@ -5,14 +5,7 @@ const form = document.querySelector('form');
 // Show/Hide Hamburger Menu for mobile version
 const showHideMobileMenu = () => {
     const navCtr = document.querySelector('.mobile-nav');
-    
-    if(navCtr.classList.contains('hide')) {
-        navCtr.classList.remove('hide');
-        navCtr.classList.add('show');
-    } else {
-        navCtr.classList.remove('show');
-        navCtr.classList.add('hide');
-    }
+    navCtr.classList.toggle('show');
 } 
 
 // Shorten the URL
@@ -71,7 +64,7 @@ const displayLinks = () => {
     })
 }
 
-// // A function to display the short-links by creating elements using the DOM
+// // Another way of displaying links using the DOM
 // const displayLinksUsingDom = () => {
 //     const linksFromStorage = getFromLocalStorage();
 //     const resultsParentContainer = document.querySelector('div.results');
