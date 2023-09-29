@@ -1,22 +1,30 @@
 const hamburgerBtn = document.querySelector('.hamburger-icon');
 const urlInput = document.querySelector('input[type="text"]');
 const form = document.querySelector('form');
+const errorMsg = document.querySelector('.error-msg');
 
 // Show/Hide Hamburger Menu for mobile version
 const showHideMobileMenu = () => {
     const navCtr = document.querySelector('.mobile-nav');
-    navCtr.classList.toggle('show');
-} 
+    navCtr.classList.toggle('show-mobile-menu');
+}
+
+// Check if the URL is valid
+const checkUrl = (urlInput) => {
+    const urlRegex = /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?/
+    return urlRegex.test(urlInput.value);
+}
 
 // Shorten the URL
 const shortenUrl = async (urlInput) => {
     if(urlInput.value === '') {
-        urlInput.style.outline = "2px solid red";
-        urlInput.classList.add('error');
+        emptyInputError();
+        return;
+    } else if(!checkUrl(urlInput)) {
+        invalidLinkError();
         return;
     } else {
-        urlInput.style.outline = "none";
-        urlInput.classList.remove('error');
+        onFocus();
         const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
         const response = await fetch(API_URL);
         const { result } = await response.json();
@@ -26,9 +34,32 @@ const shortenUrl = async (urlInput) => {
     }
 }
 
+// Remove Erro styles
 const onFocus = () => {
     urlInput.style.outline = "none";
     urlInput.classList.remove('error');
+    urlInput.style.color = 'hsl(0, 0%, 40%)';
+    errorMsg.classList.add('hide');
+    errorMsg.classList.remove('show');
+}
+
+// Error that occurs when you try to submit an empty input
+const emptyInputError = () => {
+    urlInput.style.outline = "2px solid red";
+    urlInput.classList.add('error');
+    errorMsg.textContent = "Please add a link";
+    errorMsg.classList.remove('hide');
+    errorMsg.classList.add('show');
+}
+
+// Error that occurs when you try to submit an invalid link
+const invalidLinkError = () => {
+    urlInput.style.outline = "2px solid red";
+    urlInput.style.color = 'red';
+    urlInput.classList.add('error');
+    errorMsg.textContent = "The link is not valid";
+    errorMsg.classList.remove('hide');
+    errorMsg.classList.add('show');
 }
 
 // Submit the URL

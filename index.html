@@ -32,7 +32,7 @@
     </header>
 
     <!-- Mobile Nav -->
-    <nav class="mobile-nav hide">
+    <nav class="mobile-nav hide-mobile-menu">
       <ul>
         <li><a href="#">Features</a></li>
         <li><a href="#">Pricing</a></li>
@@ -63,7 +63,10 @@
         <!-- URL input -->
         <div class="result-bg-card bg-primary">
           <form action="" class="form">
+            <div class="url-input-container">
               <input type="text" placeholder="Shorten a link here...">
+              <p class="error-msg hide">Please add a link</p>
+            </div>
             <input class="btn-primary" type="submit" value="Shorten It!">
           </form>
         </div>

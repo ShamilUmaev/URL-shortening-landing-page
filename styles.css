@@ -184,7 +184,7 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
 }
 
 /* Url input */
@@ -208,10 +208,18 @@ input[type="text"]:focus {
 
 /* Submit button */
 input[type="submit"] {
-    margin-top: 4rem;
+    margin-top: 1rem;
     font-weight: 700;
     cursor: pointer;
     color: #fff;
+}
+
+/* Error*/
+.error-msg {
+    font-size: 1.3rem;
+    color: red;
+    font-style: italic;
+    padding-top: .5rem;
 }
 
 /* Results with pasted URL above */
@@ -485,6 +493,10 @@ input[type="submit"] {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
+    .url-input-container {
+        width: 83%;
+    }
+
     /* Page Container */
     .page-container {
         max-width: 1920px;
@@ -571,10 +583,11 @@ input[type="submit"] {
     .form {
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-start;
     }
 
     input[type="text"] {
-        width: 83%;
+        width: 100%;
     }
 
     input[type="submit"] {
@@ -728,20 +741,36 @@ input[type="submit"] {
     .desktop-only {
         display: flex;
     }
+
+    .bg-primary {
+        height: 150px;
+    }
     
 }
 
 /* Utility classes */
-.hide {
+.hide-mobile-menu {
     transform: translate(-50%,-200%);
     opacity: 0;
     transition: all .8s ease;
 }
 
-.show {
+.show-mobile-menu {
     transform: translate(-50%, 0);
     opacity: 1;
     transition: all .8s ease;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    transition: all .3s ease;
 }
 
 .error::-webkit-input-placeholder {
