@@ -257,9 +257,9 @@ input[type="submit"] {
     width: 100%;
 }
 
-.result-bg-card:nth-of-type(2) .result .copy-btn {
+/* .result-bg-card:nth-of-type(2) .result .copy-btn {
     background-color: var(--color-secondary);
-}
+} */
 
 /* Statistics Section */
 .statistics-section {
@@ -759,6 +759,11 @@ input[type="submit"] {
     transform: translate(-50%, 0);
     opacity: 1;
     transition: all .8s ease;
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    transition: all .3s ease;
 }
 
 .hide {

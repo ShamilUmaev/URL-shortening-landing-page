@@ -2,6 +2,31 @@ const hamburgerBtn = document.querySelector('.hamburger-icon');
 const urlInput = document.querySelector('input[type="text"]');
 const form = document.querySelector('form');
 const errorMsg = document.querySelector('.error-msg');
+const cpyBtn = document.querySelectorAll('.copy-btn'); 
+const resultsDiv = document.querySelector('.results');
+
+// Copy to clipboard
+const copyToClipboard = (e) => {
+    if(e.target.classList.contains('copy-btn')) {
+        const copyText = e.target.previousElementSibling.textContent;
+        navigator.clipboard.writeText(copyText);
+        e.target.textContent = 'Copied';
+        e.target.classList.remove('btn-primary');
+        e.target.classList.add('btn-secondary');
+        resetCopyBtnStyle(e);
+    }
+}
+
+// Reset Copy button styles after copying text
+const resetCopyBtnStyles = (e) => {
+    setTimeout(() => {
+        e.target.textContent = 'Copy';
+        e.target.classList.remove('btn-secondary');
+        e.target.classList.add('btn-primary');
+    }, 3000)
+}
+
+resultsDiv.addEventListener('click', copyToClipboard);
 
 // Show/Hide Hamburger Menu for mobile version
 const showHideMobileMenu = () => {
@@ -151,7 +176,12 @@ const displayLinks = () => {
 //     })
 // }
 
+// Event listeners
 hamburgerBtn.addEventListener('click', showHideMobileMenu);
 urlInput.addEventListener('focus', onFocus);
 form.addEventListener('submit', submitUrl);
 document.addEventListener('DOMContentLoaded', displayLinks);
+
+cpyBtn.forEach(button => {
+    button.addEventListener('click', copyToClipboard);
+})
