@@ -13,7 +13,7 @@ const copyToClipboard = (e) => {
         e.target.textContent = 'Copied';
         e.target.classList.remove('btn-primary');
         e.target.classList.add('btn-secondary');
-        resetCopyBtnStyle(e);
+        resetCopyBtnStyles(e);
     }
 }
 
