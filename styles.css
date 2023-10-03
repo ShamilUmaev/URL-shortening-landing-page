@@ -157,13 +157,13 @@ h1, h2, h3, h4 {
 
 /* Section with URL input and results */
 .url-input-section {
-    margin-top: 18rem;
+    margin: 18rem 0 7rem;
     padding: 0 10vw;
 }
 
 /* Background for results URL input */
 .result-bg-card {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     border-radius: 10px;
     background-color: #fff;
 }
@@ -176,7 +176,7 @@ h1, h2, h3, h4 {
     background-image: url('./images/bg-shorten-mobile.svg');
     background-repeat: no-repeat;
     background-position: right top;
-    transform: translateY(-45%);
+    transform: translateY(-50%);
 }
 
 .form {
@@ -223,10 +223,6 @@ input[type="submit"] {
 }
 
 /* Results with pasted URL above */
-.results {
-    transform: translateY(-10%);
-}
-
 .pasted-url {
     width: 100%;
     border-bottom: 1px solid hsl(0, 0%, 90%);
@@ -237,6 +233,10 @@ input[type="submit"] {
     padding: 1rem 1.5rem;
     color: hsl(0, 0%, 40%);
     word-break: break-all;
+}
+
+.results {
+    margin-top: -7rem;
 }
 
 .result {
@@ -603,6 +603,10 @@ input[type="submit"] {
         background-size: cover;
     }
 
+    .results {
+        margin-top: -6rem;
+    }
+
     .results .result-bg-card {
         display: flex;
         justify-content: space-between;
@@ -618,10 +622,6 @@ input[type="submit"] {
 
     .pasted-url p {
         padding: 0;
-    }
-
-    .results {
-        transform: translateY(-20%);
     }
 
     .result {
