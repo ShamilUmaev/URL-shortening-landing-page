@@ -185,8 +185,12 @@ const scrollToUrlInput = () => {
 // }
 
 // Event listeners
-hamburgerBtn.addEventListener('click', showHideMobileMenu);
-urlInput.addEventListener('focus', onFocus);
-form.addEventListener('submit', submitUrl);
-document.addEventListener('DOMContentLoaded', displayLinks);
-getStartedBtn.addEventListener('click', scrollToUrlInput);
+const init = () => {
+    hamburgerBtn.addEventListener('click', showHideMobileMenu);
+    urlInput.addEventListener('focus', onFocus);
+    form.addEventListener('submit', submitUrl);
+    document.addEventListener('DOMContentLoaded', displayLinks);
+    getStartedBtn.addEventListener('click', scrollToUrlInput);
+}
+
+init();
