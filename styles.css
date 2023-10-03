@@ -168,6 +168,21 @@ h1, h2, h3, h4 {
     background-color: #fff;
 }
 
+.animate-result-card {
+    animation: result-card 1s ease;
+}
+
+@keyframes result-card {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Background of URL input and Submit button */
 .bg-primary {
     width: 100%;

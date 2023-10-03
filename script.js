@@ -119,7 +119,7 @@ const displayLinks = () => {
     resultsParentContainer.innerHTML = '';
     linksFromStorage.forEach(link => {
         const resultBgCard = document.createElement('div');
-        resultBgCard.classList.add('result-bg-card');
+        resultBgCard.classList.add('result-bg-card', 'animate-result-card');
         resultBgCard.innerHTML = `
             <div class="pasted-url">
                 <p>${link.original_link}</p>
