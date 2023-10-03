@@ -21,9 +21,10 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- CSS3
 - Flexbox
 - JavaScript
+- Local Storage
 - Mobile-first workflow
 
 ## Author
