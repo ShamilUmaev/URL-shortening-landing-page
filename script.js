@@ -4,6 +4,7 @@ const form = document.querySelector('form');
 const errorMsg = document.querySelector('.error-msg');
 const cpyBtn = document.querySelectorAll('.copy-btn'); 
 const resultsDiv = document.querySelector('.results');
+const getStartedBtn = document.querySelector('.get-started-btn');
 
 // Copy to clipboard
 const copyToClipboard = (e) => {
@@ -133,6 +134,13 @@ const displayLinks = () => {
     })
 }
 
+const scrollToUrlInput = () => {
+    scrollBy({
+        top: 550,
+        behavior: "smooth"
+    })
+}
+
 // // Another way of displaying links using the DOM
 // const displayLinksUsingDom = () => {
 //     const linksFromStorage = getFromLocalStorage();
@@ -181,3 +189,4 @@ hamburgerBtn.addEventListener('click', showHideMobileMenu);
 urlInput.addEventListener('focus', onFocus);
 form.addEventListener('submit', submitUrl);
 document.addEventListener('DOMContentLoaded', displayLinks);
+getStartedBtn.addEventListener('click', scrollToUrlInput);
