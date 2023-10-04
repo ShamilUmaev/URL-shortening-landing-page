@@ -41,23 +41,31 @@ const checkUrl = (urlInput) => {
     return urlRegex.test(urlInput.value);
 }
 
+// Check if the link is already shortened
+const isAlreadyShortened = (urlInput) => {
+    const regexPattern = /shrtco\.de/i;
+    return regexPattern.test(urlInput.value)
+}
+
 // Shorten the URL
 const shortenUrl = async (urlInput) => {
     if(urlInput.value === '') {
         emptyInputError();
         return;
     } else if(!checkUrl(urlInput)) {
-        invalidLinkError();
+        invalidLinkError('The link is not valid');
         return;
-    } else {
-        onFocus();
-        const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
-        const response = await fetch(API_URL);
-        const { result } = await response.json();
-        addToLocalStorage(result);
-        displayLinks();
-        urlInput.value = '';
+    } else if(isAlreadyShortened(urlInput)) {
+        invalidLinkError('The link is already shortened');
+        return;   
     }
+    onFocus();
+    const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
+    const response = await fetch(API_URL);
+    const { result } = await response.json();
+    addToLocalStorage(result);
+    displayLinks();
+    urlInput.value = '';
 }
 
 // Remove Erro styles
@@ -79,11 +87,11 @@ const emptyInputError = () => {
 }
 
 // Error that occurs when you try to submit an invalid link
-const invalidLinkError = () => {
+const invalidLinkError = (errorText) => {
     urlInput.style.outline = "2px solid red";
     urlInput.style.color = 'red';
     urlInput.classList.add('error');
-    errorMsg.textContent = "The link is not valid";
+    errorMsg.textContent = errorText;
     errorMsg.classList.remove('hide');
     errorMsg.classList.add('show');
 }
@@ -99,7 +107,7 @@ const getFromLocalStorage = () => {
     if(localStorage.getItem('links') === null) {
         return [];
     } else {
-        return linksFromStorage = JSON.parse(localStorage.getItem('links'));
+        return JSON.parse(localStorage.getItem('links'));
     }
 }
 
