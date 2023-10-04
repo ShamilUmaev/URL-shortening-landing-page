@@ -50,7 +50,7 @@ const isAlreadyShortened = (urlInput) => {
 // Shorten the URL
 const shortenUrl = async (urlInput) => {
     if(urlInput.value === '') {
-        emptyInputError();
+        invalidLinkError('Please add a link');
         return;
     } else if(!checkUrl(urlInput)) {
         invalidLinkError('The link is not valid');
@@ -75,15 +75,6 @@ const onFocus = () => {
     urlInput.style.color = 'hsl(0, 0%, 40%)';
     errorMsg.classList.add('hide');
     errorMsg.classList.remove('show');
-}
-
-// Error that occurs when you try to submit an empty input
-const emptyInputError = () => {
-    urlInput.style.outline = "2px solid red";
-    urlInput.classList.add('error');
-    errorMsg.textContent = "Please add a link";
-    errorMsg.classList.remove('hide');
-    errorMsg.classList.add('show');
 }
 
 // Error that occurs when you try to submit an invalid link
