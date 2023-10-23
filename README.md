@@ -23,9 +23,10 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS3
 - Flexbox
+- Mobile-first workflow
 - JavaScript
 - Local Storage
-- Mobile-first workflow
+- Shrtcode API
 
 ## Author
 
