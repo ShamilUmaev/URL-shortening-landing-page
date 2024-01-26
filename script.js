@@ -60,9 +60,21 @@ const shortenUrl = async (urlInput) => {
         return;   
     }
     onFocus();
-    const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
-    const response = await fetch(API_URL);
-    const { result } = await response.json();
+    // const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
+    const api_url = `https://shrtlnk.dev/api/v2/link`
+    const response = await fetch(api_url, {
+        method: 'POST',
+        headers: {
+            'api-key': 'xcwsJt1N5tOp2RW7MoWUuLl4bFByTzNVMjJTOI1ex06H0',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            url: urlInput.value
+        })
+    });
+    const result = await response.json();
+    console.log(result);
     addToLocalStorage(result);
     displayLinks();
     urlInput.value = '';
@@ -122,10 +134,10 @@ const displayLinks = () => {
         resultBgCard.classList.add('result-bg-card', 'animate-result-card');
         resultBgCard.innerHTML = `
             <div class="pasted-url">
-                <p>${link.original_link}</p>
+                <p>${link.url}</p>
             </div>
             <div class="result">
-                <a href="${link.full_short_link}">${link.full_short_link}</a>
+                <a href="${link.shrtlnk}">${link.shrtlnk}</a>
                 <button class="copy-btn btn-primary">Copy</button>
             </div>
         `
