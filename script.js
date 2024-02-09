@@ -60,24 +60,30 @@ const shortenUrl = async (urlInput) => {
         return;   
     }
     onFocus();
-    // const API_URL = `https://api.shrtco.de/v2/shorten?url=${urlInput.value}`
-    const api_url = `https://shrtlnk.dev/api/v2/link`
-    const response = await fetch(api_url, {
+    const url = 'https://api-ssl.bitly.com/v4/shorten';
+    const token = '9e76626892b45db47833502875af221e817e04f8';
+    const options = {
         method: 'POST',
         headers: {
-            'api-key': 'xcwsJt1N5tOp2RW7MoWUuLl4bFByTzNVMjJTOI1ex06H0',
-            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            url: urlInput.value
+            "long_url": urlInput.value
         })
-    });
-    const result = await response.json();
-    console.log(result);
-    addToLocalStorage(result);
-    displayLinks();
-    urlInput.value = '';
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        const {link, long_url} = result;
+        console.log(link, long_url);
+        addToLocalStorage(result);
+        displayLinks();
+        urlInput.value = '';
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 // Remove Erro styles
@@ -134,10 +140,10 @@ const displayLinks = () => {
         resultBgCard.classList.add('result-bg-card', 'animate-result-card');
         resultBgCard.innerHTML = `
             <div class="pasted-url">
-                <p>${link.url}</p>
+                <p>${link.long_url}</p>
             </div>
             <div class="result">
-                <a href="${link.shrtlnk}">${link.shrtlnk}</a>
+                <a href="${link.link}">${link.link}</a>
                 <button class="copy-btn btn-primary">Copy</button>
             </div>
         `
