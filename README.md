@@ -26,7 +26,7 @@ Users should be able to:
 - Mobile-first workflow
 - JavaScript
 - Local Storage
-- Shrtcode API
+- Bitly API
 
 ## Author
 

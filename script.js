@@ -47,19 +47,7 @@ const isAlreadyShortened = (urlInput) => {
     return regexPattern.test(urlInput.value)
 }
 
-// Shorten the URL
-const shortenUrl = async (urlInput) => {
-    if(urlInput.value === '') {
-        invalidLinkError('Please add a link');
-        return;
-    } else if(!checkUrl(urlInput)) {
-        invalidLinkError('The link is not valid');
-        return;
-    } else if(isAlreadyShortened(urlInput)) {
-        invalidLinkError('The link is already shortened');
-        return;   
-    }
-    onFocus();
+const postRequest = async () => {
     const url = 'https://api-ssl.bitly.com/v4/shorten';
     const token = '9e76626892b45db47833502875af221e817e04f8';
     const options = {
@@ -86,7 +74,23 @@ const shortenUrl = async (urlInput) => {
     }
 }
 
-// Remove Erro styles
+// Shorten the URL
+const shortenUrl = async (urlInput) => {
+    if(urlInput.value === '') {
+        invalidLinkError('Please add a link');
+        return;
+    } else if(!checkUrl(urlInput)) {
+        invalidLinkError('The link is not valid');
+        return;
+    } else if(isAlreadyShortened(urlInput)) {
+        invalidLinkError('The link is already shortened');
+        return;   
+    }
+    onFocus();
+    postRequest();
+}
+
+// Remove Error styles
 const onFocus = () => {
     urlInput.style.outline = "none";
     urlInput.classList.remove('error');
