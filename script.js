@@ -64,8 +64,6 @@ const postRequest = async () => {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        const {link, long_url} = result;
-        console.log(link, long_url);
         addToLocalStorage(result);
         displayLinks();
         urlInput.value = '';
